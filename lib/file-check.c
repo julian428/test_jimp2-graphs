@@ -8,7 +8,7 @@
 // 001000 = 8 - wrong file format 1-st line
 // 010000 = 16 - wrong file format nodes
 // 100000 = 32 - wrong file format edges
-int checkFileParity(char *file_name, int nodes, int edges) {
+int checkFileParity(char *file_name, const int nodes, const int edges) {
   int error_return_value = 0;
   FILE *graph_file = fopen(file_name, "r");
   if (graph_file == NULL)

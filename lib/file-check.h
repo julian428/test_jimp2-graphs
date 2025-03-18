@@ -1,3 +1,3 @@
 #include <stdio.h>
 
-int checkFileParity(char *, int, int);
+int checkFileParity(char *, const int, const int);
