@@ -1,5 +1,4 @@
 #include "file-check.h"
-#include <cstdio>
 
 // the error is returned as a int that was a binary number
 // 000000 = 0 - success
