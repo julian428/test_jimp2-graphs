@@ -23,22 +23,24 @@ int checkFileParity(char *file_name, int nodes, int edges) {
   if (file_nodes_count != nodes)
     error_return_value += 1;
 
+  char singleLetter;
   int count = 0;
-  char node1, node2;
-
-  while (count < file_nodes_count && fscanf(graph_file, "%c", &node1) == 1)
+  for (int i = 0; i < nodes; i++) {
+    if (fscanf(graph_file, " %c", &singleLetter) == EOF)
+      break;
     count++;
-
-  if (count != file_nodes_count)
+  }
+  if (count != nodes)
     error_return_value += 16;
 
+  char first, second;
   count = 0;
-
-  while (count < file_edges_count &&
-         fscanf(graph_file, "%c %c", &node1, &node2) == 2)
+  for (int i = 0; i < edges; i++) {
+    if (fscanf(graph_file, " %c %c", &first, &second) == EOF)
+      break;
     count++;
-
-  if (count != file_edges_count)
+  }
+  if (count != edges)
     error_return_value += 32;
 
   fclose(graph_file);
