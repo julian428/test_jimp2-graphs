@@ -1,5 +1,4 @@
 #include "file-check.h"
-#include <stdio.h>
 
 // 0 - success
 // 1 - node conflict
