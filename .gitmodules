@@ -1,0 +1,3 @@
+[submodule "jimp2-graphs"]
+	path = jimp2-graphs
+	url = https://github.com/yallxe/jimp2-graphs
