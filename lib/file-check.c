@@ -1,14 +1,14 @@
 #include "file-check.h"
 
-// the error is returned as a int that was a binary number
-// 000000 = 0 - success
-// 000001 = 1 - node conflict
-// 000010 = 2 - edge conflict
-// 000100 = 4 - no file
-// 001000 = 8 - wrong file format 1-st line
-// 010000 = 16 - wrong file format nodes
-// 100000 = 32 - wrong file format edges
 int checkFileParity(char *file_name, const int nodes, const int edges) {
+  // the error is returned as a int that was a binary number
+  // 000000 = 0 - success
+  // 000001 = 1 - node conflict
+  // 000010 = 2 - edge conflict
+  // 000100 = 4 - no file
+  // 001000 = 8 - wrong file format 1-st line
+  // 010000 = 16 - wrong file format nodes
+  // 100000 = 32 - wrong file format edges
   int error_return_value = 0;
   FILE *graph_file = fopen(file_name, "r");
   if (graph_file == NULL)
