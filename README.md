@@ -1,31 +1,33 @@
-
 # Tester do [jimp2-graphs](https://github.com/yallxe/jimp2-graphs/tree/fe763fa63365c670291d98d80ecb7351f9a6defc)
 
-Konfigurowalny program do testowania projektu ( [yallxe](https://github.com/yallxe) __&&__ [Marcello732](https://github.com/Marcello732) ), [jimp2-graphs](https://github.com/yallxe/jimp2-graphs/tree/fe763fa63365c670291d98d80ecb7351f9a6defc).
-
+Konfigurowalny program do testowania projektu ( [yallxe](https://github.com/yallxe) **&&** [Marcello732](https://github.com/Marcello732) ), [jimp2-graphs](https://github.com/yallxe/jimp2-graphs/tree/fe763fa63365c670291d98d80ecb7351f9a6defc).
 
 ## Instalacja
 
-Do kompilacji oraz uruchomienia programu potrzebny będzie [nix-shell](https://nixos.org/download/#nix-install-macos) oraz __make__
+Do kompilacji oraz uruchomienia programu potrzebny będzie [nix-shell](https://nixos.org/download/#nix-install-macos) oraz **make**
 
 W folderze z programem:
+
 ```bash
 make
 ```
-    
+
 ## Uruchamianie
 
 W folderze z programem:
 
 1. Wchodzimy do izolowangeo środowiska:
+
 ```bash
 nix-shell
 ```
 
 2. Uruchamiamy program:
+
 ```bash
 ./graph_test
 ```
+
 ## Przykład
 
 ```bash
@@ -76,30 +78,32 @@ Test 2. Sprawdzanie funkcjonalności LLM
     FAILED. Zdjęcie grafu nie jest zgodne z założeniami.
 ---
 ```
+
 ## Konfiguracja testów
 
 W pliku `config.json`
 
 ```json
 [
-    {
-        "name": "Sprawdzanie działalności algorytmu.",
-        "edges": 3,
-        "nodes": 3
-    },
-    {
-        "name": "Sprawdzanne funkcjonalności LLM",
-        "eges": 5,
-        "nodes" 10,
-        "model": "model_name",
-        "api": "api_endpoint"
-    }
+  {
+    "name": "Sprawdzanie działalności algorytmu.",
+    "edges": 3,
+    "nodes": 3
+  },
+  {
+    "name": "Sprawdzanne funkcjonalności LLM",
+    "eges": 5,
+    "nodes": 10,
+    "model": "model_name",
+    "api": "api_endpoint"
+  }
 ]
 ```
 
 #### Parametry
-- __name__ - nazwa testu
-- __edges__ - ilość wierzchołków
-- __nodes__ - ilość krawędzi
-- __model__ - nazwa modelu llm
-- __api__ - adres api modelu llm
+
+- **name** - nazwa testu
+- **edges** - ilość wierzchołków
+- **nodes** - ilość krawędzi
+- **model** - nazwa modelu llm
+- **api** - adres api modelu llm
