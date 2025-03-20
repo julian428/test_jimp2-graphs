@@ -27,9 +27,8 @@ char *getNodes(FILE *graph_file, const int nodes) {
 
 int getNodeIndex(char *nodeLetters, int length, char node) {
   for (int i = 0; i < length; i++) {
-    if (nodeLetters[i] != node)
-      continue;
-    return i;
+    if (nodeLetters[i] == node)
+      return i;
   }
   return -1;
 }
