@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "lib/config.h"
 #include "lib/file-check.h"
 #include "lib/utils.h"
 
@@ -9,6 +10,10 @@ int main(int argc, char **argv) {
   char *graph_image_name = "graph.png";
   int nodes = 15;
   int edges = 60;
+
+  printf("Graph AI Model: %s\n", getConfigValue("graph_model"));
+  printf("Graph Image Model: %s\n", getConfigValue("image_model"));
+  printf("AI Endpoint: %s\n", getConfigValue("api"));
 
   printf("Testowanie programu 'jimp2-graphs'.\n");
 
