@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wextra -g
 LDFLAGS = -lcurl -lcjson
 
-SRC = main.c lib/file-check.c lib/utils.c
+SRC = main.c lib/file-check.c lib/utils.c lib/config.c
 OBJ = $(SRC:.c=.o)
 EXEC = graph_test
 
