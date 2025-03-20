@@ -26,6 +26,12 @@ int checkFileParity(char *file_name, const int nodes, const int edges) {
 
   char singleLetter;
   char *letters = (char *)malloc(sizeof(char) * nodes);
+  if (letters == NULL) {
+    fprintf(stderr, "Nie udało się zająć pamięci.");
+    fclose(graph_file);
+    return 4;
+  }
+
   int count = 0;
   for (int i = 0; i < nodes; i++) {
     if (fscanf(graph_file, " %c", &singleLetter) == EOF)
