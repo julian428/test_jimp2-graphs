@@ -1,5 +1,21 @@
 #include "file-check.h"
 
+char *getNodes(FILE *graph_file, const int nodes) {
+  char singleLetter;
+  char *nodeLetters = (char *)calloc(nodes, sizeof(char));
+  if (nodeLetters == NULL) {
+    fprintf(stderr, "Nie udało się zdobyć pamięci dla wierzchołków.");
+    return NULL;
+  }
+
+  for (int i = 0; i < nodes; i++) {
+    if (fscanf(graph_file, " %c", &singleLetter) == EOF)
+      break;
+    nodeLetters[i] = singleLetter;
+  }
+  return nodeLetters;
+}
+
 int checkFileParity(char *file_name, const int nodes, const int edges) {
   // the error is returned as a int that was a binary number
   // 000000 = 0 - success
@@ -24,21 +40,19 @@ int checkFileParity(char *file_name, const int nodes, const int edges) {
     error_return_value += 1;
 
   // nodes
-  char singleLetter;
 
-  int count = 0;
+  char *nodeLetters = getNodes(graph_file, nodes);
+
   for (int i = 0; i < nodes; i++) {
-    if (fscanf(graph_file, " %c", &singleLetter) == EOF)
-      break;
-    count++;
-  }
-
-  if (count != nodes)
+    if (nodeLetters[i] != 0)
+      continue;
     error_return_value += 16;
+    break;
+  }
 
   // edges
   char first, second;
-  count = 0;
+  int count = 0;
   for (int i = 0; i < edges; i++) {
     if (fscanf(graph_file, " %c %c", &first, &second) == EOF)
       break;
