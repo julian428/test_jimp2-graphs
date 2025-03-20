@@ -5,5 +5,6 @@
 #include <stdlib.h>
 
 int checkFileParity(char *, const int, const int);
+int checkGraphParity(char *, const int, const int);
 
 #endif
