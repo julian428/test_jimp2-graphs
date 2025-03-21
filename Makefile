@@ -3,16 +3,22 @@ CFLAGS = -Wextra -g
 LDFLAGS = -lcurl -lcjson
 
 SRC = main.c lib/file-check.c lib/utils.c lib/config.c
-OBJ = $(SRC:.c=.o)
-EXEC = graph_test
+OBJ = $(patsubst %.c,bin/%.o,$(SRC))
+EXEC = bin/graph_test
 
 all: $(EXEC)
 
-$(EXEC): $(OBJ)
+$(EXEC): $(OBJ) | bin
 	nix-shell --run "$(CC) $(OBJ) -o $(EXEC) $(LDFLAGS)"
 
-%.o: %.c
+# Ensure object files go to bin/, creating necessary subdirectories
+bin/%.o: %.c | bin_dirs
 	nix-shell --run "$(CC) $(CFLAGS) -c $< -o $@"
 
+# Create bin and bin/lib directories as needed
+bin_dirs:
+	mkdir -p bin bin/lib
+
 clean:
-	rm -rf test_inputs/* *.png *.txt $(EXEC) $(OBJ) $(EXEC)
+	rm -rf test_inputs/* *.png *.txt bin/
+
