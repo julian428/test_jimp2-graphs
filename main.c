@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 
   int test_count;
   TestCase *tests = getTests(getConfigValue("tests"), &test_count);
-  printf("\nParsed %d test cases:\n", test_count);
+  printf("Testowanie programu \x1b[34mjimp2-graphs\x1b[0m.\n\n");
 
   for (int i = 0; i < test_count; i++) {
     printf("Test %d. %s\n", i + 1, tests[i].name);

@@ -31,8 +31,9 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
     sprintf(ai, " ai -m %s -u %s", model, endpoint);
     new_command = concat(command, ai);
     free(ai);
-  } else
-    new_command = command;
+  } else {
+    new_command = concat(command, " > /dev/null");
+  }
 
   FILE *graphgen = popen(new_command, "w");
   if (test.ai) {
