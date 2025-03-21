@@ -43,7 +43,12 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
     return 1;
   }
 
-  fprintf(graphgen, "%d %d", test.nodes, test.edges);
+  if (test.ai) {
+    fprintf(graphgen, "Create a graph with %d nodes and %d edges.", test.nodes,
+            test.edges);
+  } else {
+    fprintf(graphgen, "%d %d", test.nodes, test.edges);
+  }
   fclose(graphgen);
   return system("mv graph.* test_inputs/");
 }

@@ -4,8 +4,8 @@
   "tests": [
     {
       "name": "Sprawdzanie działalności algorytmu.",
-      "edges": 3,
-      "nodes": 3
+      "edges": 5,
+      "nodes": 10
     },
     {
       "name": "Sprawdzanne funkcjonalności LLM",
