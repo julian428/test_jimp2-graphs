@@ -8,7 +8,7 @@
 #include "config.h"
 
 void initializeLog(char *);
-void logTestData(TestCase, char *);
+void logTestData(TestCase, char *, char *, int *);
 void log_printf(char *, const char *, ...);
 
 #endif

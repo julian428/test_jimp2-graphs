@@ -20,7 +20,7 @@ int main(int argc, char **argv) {
   printf("Testowanie programu \x1b[34mjimp2-graphs\x1b[0m.\n\n");
 
   for (int i = 0; i < test_count; i++) {
-    log_printf(log_name, "\x1b[1mTest %d\x1b[0m. %s\n", i + 1, tests[i].name);
+    log_printf(log_name, "\n\x1b[1mTest %d\x1b[0m. %s\n", i + 1, tests[i].name);
     int nodes = tests[i].expected_nodes;
     int edges = tests[i].expected_edges;
 
@@ -43,6 +43,8 @@ int main(int argc, char **argv) {
     log_printf(log_name, "\t%s. Graf jest skierowany.\n",
                isDirectional ? "\x1b[32mPASSED\x1b[0m"
                              : "\x1b[31mFAILED\x1b[0m");
+
+    logTestData(tests[i], log_name, graph_file_name, adjecency_matrix);
   }
   free(tests);
 
