@@ -15,4 +15,4 @@ $(EXEC): $(OBJ)
 	nix-shell --run "$(CC) $(CFLAGS) -c $< -o $@"
 
 clean:
-	rm -rf *.txt $(EXEC) $(OBJ) $(EXEC)
+	rm -rf test_inputs/* *.png *.txt $(EXEC) $(OBJ) $(EXEC)
