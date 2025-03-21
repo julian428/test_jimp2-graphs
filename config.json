@@ -9,8 +9,9 @@
     },
     {
       "name": "Sprawdzanne funkcjonalności LLM",
-      "edges": 15,
-      "nodes": 60
+      "edges": 6,
+      "nodes": 3,
+      "ai": true
     }
   ]
 }
