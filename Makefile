@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wextra -g
-LDFLAGS = -lcurl -lcjson
+LDFLAGS = -lcurl -lcjson -lm
 
 SRC = main.c lib/file-check.c lib/utils.c lib/config.c
 OBJ = $(patsubst %.c,bin/%.o,$(SRC))

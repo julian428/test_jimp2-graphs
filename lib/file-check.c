@@ -9,6 +9,29 @@
 // 010000 = 16 - wrong file format nodes
 // 100000 = 32 - wrong file format edges
 
+void translateErrors(int error_value, char *title) {
+  printf("\t%s. %s\n",
+         error_value == 0 ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m",
+         title);
+  const int error_count = 6;
+  const char *errors[] = {
+      "Niezgodna ilość wierzchołków.",
+      "Niezgodna ilość krawędzi.",
+      "Brak pliku.",
+      "Nieprawidłowy format deklaracji wierchołków i krawędzi w pliku.",
+      "Nieprawidłowy format wierchołków.",
+      "Nieprawidłowy format krawędzi."};
+  int error_sum = error_value;
+  for (int i = 0; i < error_count; i++) {
+    int reverse_value = error_count - 1 - i;
+    int twoPower = pow(2, reverse_value);
+    if (error_sum < twoPower)
+      continue;
+    error_sum -= twoPower;
+    printf("\t\t- %s\n", errors[reverse_value]);
+  }
+}
+
 char *getNodes(FILE *graph_file, const int nodes) {
   char singleLetter;
   char *nodeLetters = (char *)calloc(nodes, sizeof(char));
