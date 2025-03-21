@@ -51,5 +51,6 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
     fprintf(graphgen, "%d %d", test.nodes, test.edges);
   }
   fclose(graphgen);
-  return system("mv graph.* test_inputs/");
+  int isDir = system("mkdir -p test_inputs");
+  return system("mv graph.* test_inputs/") || isDir;
 }
