@@ -1,6 +1,6 @@
 {
   "api": "http://127.0.0.1:1234",
-  "graph_model": "llama-3.2-1b-instruct",
+  "model": "llama-3.2-1b-instruct",
   "tests": [
     {
       "name": "Sprawdzanie działalności algorytmu.",
@@ -9,8 +9,8 @@
     },
     {
       "name": "Sprawdzanne funkcjonalności LLM",
-      "eges": 5,
-      "nodes": 10,
+      "edges": 15,
+      "nodes": 60,
       "ai": true
     }
   ]

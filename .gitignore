@@ -2,3 +2,4 @@ graph_test
 *.png
 *.o
 *.txt
+test_inputs/*
