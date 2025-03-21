@@ -37,6 +37,22 @@ void logTestData(TestCase test, char *log_file_name, char *graph_file_name,
   }
 
   fprintf(log_file, "\n\nWygenerowany graf: \n\n");
+
+  FILE *graph_file = fopen(graph_file_name, "r");
+  if (graph_file == NULL) {
+    fclose(log_file);
+    return;
+  }
+
+  char line[1024];
+
+  while (fgets(line, sizeof(line), graph_file)) {
+    fputs(line, log_file);
+  }
+
+  fclose(graph_file);
+  fclose(log_file);
+  return;
 }
 
 void log_printf(char *log_file_name, const char *format, ...) {
