@@ -50,6 +50,8 @@ void logTestData(TestCase test, char *log_file_name, char *graph_file_name,
     fputs(line, log_file);
   }
 
+  fprintf(log_file, "\n\n##########\n##########\n\n");
+
   fclose(graph_file);
   fclose(log_file);
   return;
