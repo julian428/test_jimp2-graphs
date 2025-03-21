@@ -150,3 +150,7 @@ int checkGraphParity(char *file_name, const int nodes, const int edges,
   fclose(graph_file);
   return error_return_value;
 }
+
+int checkImageExistance(char *file_name) {
+  return access(file_name, F_OK) == 0;
+}
