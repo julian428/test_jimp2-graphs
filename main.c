@@ -19,6 +19,8 @@ int main(int argc, char **argv) {
     int nodes = tests[i].nodes;
     int edges = tests[i].edges;
 
+    generateGraphFiles(tests[i], model, endpoint);
+
     int file_parity = checkFileParity(graph_file_name, nodes, edges);
     printf("File parity sum: %d\n", file_parity);
 
