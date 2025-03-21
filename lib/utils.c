@@ -34,8 +34,6 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
   } else
     new_command = command;
 
-  printf("\n%s\n", new_command);
-
   FILE *graphgen = popen(new_command, "w");
   if (test.ai) {
     free(new_command);
@@ -46,6 +44,6 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
   }
 
   fprintf(graphgen, "%d %d", test.nodes, test.edges);
-  // fclose(graphgen);
+  fclose(graphgen);
   return system("mv graph.* test_inputs/");
 }
