@@ -5,6 +5,6 @@
 #include <stdio.h>
 
 cJSON *readConfig();
-char *getConfigValue(char *);
+cJSON *getConfigValue(char *);
 
 #endif

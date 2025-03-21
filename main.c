@@ -11,9 +11,10 @@ int main(int argc, char **argv) {
   int nodes = 15;
   int edges = 60;
 
-  printf("Graph AI Model: %s\n", getConfigValue("graph_model"));
-  printf("Graph Image Model: %s\n", getConfigValue("image_model"));
-  printf("AI Endpoint: %s\n", getConfigValue("api"));
+  printf("Graph AI Model: %s\n", getConfigValue("graph_model")->valuestring);
+  printf("Graph Image Model: %s\n", getConfigValue("image_model")->valuestring);
+  printf("AI Endpoint: %s\n", getConfigValue("api")->valuestring);
+  printf("Tests count: %d\n", cJSON_GetArraySize(getConfigValue("tests")));
 
   printf("Testowanie programu 'jimp2-graphs'.\n");
 

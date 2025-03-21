@@ -10,6 +10,7 @@ cJSON *readConfig() {
   char json_buffer[2048];
   int len = fread(json_buffer, 1, sizeof(json_buffer), config_file);
   fclose(config_file);
+  json_buffer[len] = '\0';
 
   cJSON *config = cJSON_Parse(json_buffer);
   if (config == NULL) {
@@ -24,15 +25,13 @@ cJSON *readConfig() {
   return config;
 }
 
-char *getConfigValue(char *value_name) {
+cJSON *getConfigValue(char *value_name) {
   cJSON *config = readConfig();
   cJSON *configValue = cJSON_GetObjectItemCaseSensitive(config, value_name);
 
-  if (cJSON_IsString(configValue) && (configValue->valuestring != NULL)) {
-    char *value = configValue->valuestring;
-    return value;
+  if (configValue == NULL) {
+    fprintf(stderr, "Key %s does not exist in config.", value_name);
   }
 
-  cJSON_Delete(config);
-  return NULL;
+  return configValue;
 }
