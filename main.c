@@ -22,15 +22,16 @@ int main(int argc, char **argv) {
     generateGraphFiles(tests[i], model, endpoint);
 
     int file_parity = checkFileParity(graph_file_name, nodes, edges);
-    printf("File parity sum: %d\n", file_parity);
+    translateErrors(file_parity, "Zgodność pliku z założeniami.");
 
     int *adjecency_matrix = (int *)calloc(nodes * nodes, sizeof(int));
     int graph_parity =
         checkGraphParity(graph_file_name, nodes, edges, adjecency_matrix);
-    printf("Graph parity sum: %d\n", graph_parity);
+    translateErrors(graph_parity, "Zgodność grafu z założeniami.");
 
     int isDirectional = graphIsDirectional(adjecency_matrix, nodes);
-    printf("Is graph directional: %d\n", isDirectional);
+    printf("\t%s. Graf jest skierowany.\n",
+           isDirectional ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m");
   }
   free(tests);
 
