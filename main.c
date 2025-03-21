@@ -7,6 +7,8 @@
 
 int main(int argc, char **argv) {
   char *graph_file_name = "test_inputs/graph.txt";
+  char *graph_image_name = "test_inputs/graph.png";
+
   char *model = getConfigValue("model")->valuestring;
   char *endpoint = getConfigValue("api")->valuestring;
 
@@ -23,6 +25,10 @@ int main(int argc, char **argv) {
 
     int file_parity = checkFileParity(graph_file_name, nodes, edges);
     translateErrors(file_parity, "Zgodność pliku z założeniami.");
+
+    int imageExists = checkImageExistance(graph_image_name);
+    printf("\t%s. Zdjęcie grafu zostało wygenerowane.\n",
+           imageExists ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m");
 
     int *adjecency_matrix = (int *)calloc(nodes * nodes, sizeof(int));
     int graph_parity =
