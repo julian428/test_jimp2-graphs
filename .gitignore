@@ -1,5 +1,3 @@
 bin
-*.png
-*.o
-*.txt
-test_inputs/*
+test_inputs
+logs

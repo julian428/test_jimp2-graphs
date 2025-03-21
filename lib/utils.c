@@ -1,5 +1,16 @@
 #include "utils.h"
 
+char *getLogName() {
+  time_t t;
+  time(&t);
+  struct tm *tm_info = localtime(&t);
+
+  char *dateBuffer = (char *)malloc(32 * sizeof(char));
+  strftime(dateBuffer, 32, "logs/log_%d.%m.%Y@%H:%M.txt", tm_info);
+
+  return dateBuffer;
+}
+
 int graphIsDirectional(int *adjecencyMatrix, const int nodes) {
   for (int i = 0; i < nodes; i++) {
     for (int j = 0; j < nodes; j++) {
