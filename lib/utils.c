@@ -49,6 +49,8 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
     fprintf(graphgen, "%d %d", test.nodes, test.edges);
   }
   fclose(graphgen);
-  int isDir = system("mkdir -p test_inputs");
-  return system("mv graph.* test_inputs/") || isDir;
+  int isDir = system("mkdir -p test_inputs 2> /dev/null");
+  int removedPrevious = system("rm -rf test_inputs/* 2> /dev/null");
+  int movedFiles = system("mv graph.* test_inputs/ 2> /dev/null");
+  return movedFiles || isDir || removedPrevious;
 }

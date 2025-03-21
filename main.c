@@ -35,7 +35,8 @@ int main(int argc, char **argv) {
         checkGraphParity(graph_file_name, nodes, edges, adjecency_matrix);
     translateErrors(graph_parity, "Zgodność grafu z założeniami.");
 
-    int isDirectional = graphIsDirectional(adjecency_matrix, nodes);
+    int isDirectional =
+        graphIsDirectional(adjecency_matrix, nodes) && (file_parity == 0);
     printf("\t%s. Graf jest skierowany.\n",
            isDirectional ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m");
   }
