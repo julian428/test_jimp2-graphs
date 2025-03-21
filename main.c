@@ -14,7 +14,18 @@ int main(int argc, char **argv) {
   printf("Graph AI Model: %s\n", getConfigValue("graph_model")->valuestring);
   printf("Graph Image Model: %s\n", getConfigValue("image_model")->valuestring);
   printf("AI Endpoint: %s\n", getConfigValue("api")->valuestring);
-  printf("Tests count: %d\n", cJSON_GetArraySize(getConfigValue("tests")));
+
+  int test_count;
+  TestCase *tests = getTests(getConfigValue("tests"), &test_count);
+  printf("\nParsed %d test cases:\n", test_count);
+  for (int i = 0; i < test_count; i++) {
+    printf("Test %d:\n", i + 1);
+    printf("  Name: %s\n", tests[i].name);
+    printf("  Edges: %d\n", tests[i].edges);
+    printf("  Nodes: %d\n", tests[i].nodes);
+    printf("  AI: %s\n\n", tests[i].ai ? "true" : "false");
+  }
+  free(tests);
 
   printf("Testowanie programu 'jimp2-graphs'.\n");
 
