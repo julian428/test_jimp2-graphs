@@ -36,7 +36,7 @@ char *getNodes(FILE *graph_file, const int nodes) {
   char singleLetter;
   char *nodeLetters = (char *)calloc(nodes, sizeof(char));
   if (nodeLetters == NULL) {
-    fprintf(stderr, "Nie udało się zdobyć pamięci dla wierzchołków.");
+    fprintf(stderr, "Nie udało się zdobyć pamięci dla wierzchołków.\n");
     return NULL;
   }
 

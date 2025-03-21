@@ -18,8 +18,8 @@ int main(int argc, char **argv) {
 
   for (int i = 0; i < test_count; i++) {
     printf("Test %d. %s\n", i + 1, tests[i].name);
-    int nodes = tests[i].nodes;
-    int edges = tests[i].edges;
+    int nodes = tests[i].expected_nodes;
+    int edges = tests[i].expected_edges;
 
     generateGraphFiles(tests[i], model, endpoint);
 
@@ -35,7 +35,8 @@ int main(int argc, char **argv) {
         checkGraphParity(graph_file_name, nodes, edges, adjecency_matrix);
     translateErrors(graph_parity, "Zgodność grafu z założeniami.");
 
-    int isDirectional = graphIsDirectional(adjecency_matrix, nodes);
+    int isDirectional =
+        graphIsDirectional(adjecency_matrix, nodes) && (file_parity == 0);
     printf("\t%s. Graf jest skierowany.\n",
            isDirectional ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m");
   }

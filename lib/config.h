@@ -11,6 +11,8 @@ typedef struct {
   char name[256];
   int edges;
   int nodes;
+  int expected_edges;
+  int expected_nodes;
   bool ai;
 } TestCase;
 
