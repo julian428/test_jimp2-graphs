@@ -35,6 +35,8 @@ void logTestData(TestCase test, char *log_file_name, char *graph_file_name,
       fprintf(log_file, "\n");
     fprintf(log_file, "%d ", adjecency_matrix[i]);
   }
+
+  fprintf(log_file, "\n\nWygenerowany graf: \n\n");
 }
 
 void log_printf(char *log_file_name, const char *format, ...) {

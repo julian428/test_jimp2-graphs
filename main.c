@@ -46,7 +46,13 @@ int main(int argc, char **argv) {
 
     logTestData(tests[i], log_name, graph_file_name, adjecency_matrix);
   }
+
+  printf("\n\nBardziej szczegółowe informacje zostały zapisane do pliku: "
+         "\x1b[34m%s\x1b[0m\n\n",
+         log_name);
+
   free(tests);
+  free(log_name);
 
   return 0;
 }
