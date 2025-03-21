@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wextra -g
 LDFLAGS = -lcurl -lcjson -lm
 
-SRC = main.c lib/file-check.c lib/utils.c lib/config.c
+SRC = main.c lib/file-check.c lib/utils.c lib/config.c lib/log.c
 OBJ = $(patsubst %.c,bin/%.o,$(SRC))
 EXEC = bin/graph_test
 
@@ -20,5 +20,5 @@ bin_dirs:
 	mkdir -p bin bin/lib
 
 clean:
-	rm -rf test_inputs/* *.png *.txt bin/
+	rm -rf test_inputs bin logs
 

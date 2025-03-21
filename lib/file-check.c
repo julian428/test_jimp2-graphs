@@ -9,10 +9,11 @@
 // 010000 = 16 - wrong file format nodes
 // 100000 = 32 - wrong file format edges
 
-void translateErrors(int error_value, char *title) {
-  printf("\t%s. %s\n",
-         error_value == 0 ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m",
-         title);
+void translateErrors(int error_value, char *title, char *log_file_name) {
+  log_printf(log_file_name, "\t%s. %s\n",
+             error_value == 0 ? "\x1b[32mPASSED\x1b[0m"
+                              : "\x1b[31mFAILED\x1b[0m",
+             title);
   const int error_count = 6;
   const char *errors[] = {
       "Niezgodna ilość wierzchołków.",
@@ -28,7 +29,7 @@ void translateErrors(int error_value, char *title) {
     if (error_sum < twoPower)
       continue;
     error_sum -= twoPower;
-    printf("\t\t- %s\n", errors[reverse_value]);
+    log_printf(log_file_name, "\t\t- %s\n", errors[reverse_value]);
   }
 }
 
