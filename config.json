@@ -1,7 +1,6 @@
 {
   "api": "http://127.0.0.1:1234",
   "graph_model": "llama-3.2-1b-instruct",
-  "image_model": "xtuner/llava-phi-3-mini-gguf",
   "tests": [
     {
       "name": "Sprawdzanie działalności algorytmu.",
@@ -12,8 +11,7 @@
       "name": "Sprawdzanne funkcjonalności LLM",
       "eges": 5,
       "nodes": 10,
-      "ai": true,
-      "image": true
+      "ai": true
     }
   ]
 }

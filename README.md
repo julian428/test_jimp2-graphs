@@ -84,20 +84,23 @@ Test 2. Sprawdzanie funkcjonalności LLM
 W pliku `config.json`
 
 ```json
-[
-  {
-    "name": "Sprawdzanie działalności algorytmu.",
-    "edges": 3,
-    "nodes": 3
-  },
-  {
-    "name": "Sprawdzanne funkcjonalności LLM",
-    "eges": 5,
-    "nodes": 10,
-    "model": "model_name",
-    "api": "api_endpoint"
-  }
-]
+{
+  "api": "http://127.0.0.1:1234",
+  "model": "llama-3.2-1b-instruct",
+  "tests": [
+    {
+      "name": "Sprawdzanie działalności algorytmu.",
+      "edges": 3,
+      "nodes": 3
+    },
+    {
+      "name": "Sprawdzanne funkcjonalności LLM",
+      "eges": 5,
+      "nodes": 10,
+      "ai": true
+    }
+  ]
+}
 ```
 
 #### Parametry
@@ -105,5 +108,7 @@ W pliku `config.json`
 - **name** - nazwa testu
 - **edges** - ilość wierzchołków
 - **nodes** - ilość krawędzi
+- **ai** - czy użyć ai do generacji grafu
+- **tests** - lista testów
 - **model** - nazwa modelu llm
 - **api** - adres api modelu llm
