@@ -65,6 +65,20 @@ TestCase *getTests(cJSON *json_array, int *length) {
     cJSON *nodes = cJSON_GetObjectItemCaseSensitive(test, "nodes");
     tests[i].nodes = cJSON_IsNumber(nodes) ? nodes->valueint : 1;
 
+    // Extract expected_edges
+    cJSON *expected_edges =
+        cJSON_GetObjectItemCaseSensitive(test, "expected_edges");
+    tests[i].expected_edges = cJSON_IsNumber(expected_edges)
+                                  ? expected_edges->valueint
+                                  : edges->valueint;
+
+    // Extract expected_nodes
+    cJSON *expected_nodes =
+        cJSON_GetObjectItemCaseSensitive(test, "expected_nodes");
+    tests[i].expected_nodes = cJSON_IsNumber(expected_nodes)
+                                  ? expected_nodes->valueint
+                                  : nodes->valueint;
+
     // Extract ai
     cJSON *ai = cJSON_GetObjectItemCaseSensitive(test, "ai");
     tests[i].ai = cJSON_IsBool(ai) ? ai->valueint : false;

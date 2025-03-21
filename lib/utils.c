@@ -36,9 +36,7 @@ int generateGraphFiles(TestCase test, char *model, char *endpoint) {
   }
 
   FILE *graphgen = popen(new_command, "w");
-  if (test.ai) {
-    free(new_command);
-  }
+  free(new_command);
   if (graphgen == NULL) {
     fprintf(stderr, "Couldn't open process for graph generation.");
     return 1;

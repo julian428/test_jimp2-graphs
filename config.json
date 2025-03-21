@@ -12,6 +12,13 @@
       "edges": 6,
       "nodes": 3,
       "ai": true
+    },
+    {
+      "name": "Sprawdzanie reakcji na niepoprawne dane.",
+      "nodes": -1,
+      "edges": -1,
+      "expected_nodes": 2,
+      "expected_edges": 1
     }
   ]
 }

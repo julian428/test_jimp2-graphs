@@ -18,8 +18,8 @@ int main(int argc, char **argv) {
 
   for (int i = 0; i < test_count; i++) {
     printf("Test %d. %s\n", i + 1, tests[i].name);
-    int nodes = tests[i].nodes;
-    int edges = tests[i].edges;
+    int nodes = tests[i].expected_nodes;
+    int edges = tests[i].expected_edges;
 
     generateGraphFiles(tests[i], model, endpoint);
 
