@@ -1,47 +1,60 @@
-
 # Tester do [jimp2-graphs](https://github.com/yallxe/jimp2-graphs/tree/fe763fa63365c670291d98d80ecb7351f9a6defc)
 
-Konfigurowalny program do testowania projektu ( [yallxe](https://github.com/yallxe) __&&__ [Marcello732](https://github.com/Marcello732) ), [jimp2-graphs](https://github.com/yallxe/jimp2-graphs/tree/fe763fa63365c670291d98d80ecb7351f9a6defc).
-
+Konfigurowalny program do testowania projektu ( [yallxe](https://github.com/yallxe) **&&** [Marcello732](https://github.com/Marcello732) ), [jimp2-graphs](https://github.com/yallxe/jimp2-graphs/tree/fe763fa63365c670291d98d80ecb7351f9a6defc).
 
 ## Instalacja
 
-Do kompilacji oraz uruchomienia programu potrzebny będzie [nix-shell](https://nixos.org/download/#nix-install-macos) oraz __make__
+Do kompilacji oraz uruchomienia programu potrzebny będzie [nix-shell](https://nixos.org/download/#nix-install-macos) oraz **make**
 
 W folderze z programem:
+
 ```bash
 make
 ```
 
 Należy również na własną rękę pobrać wybrany model w [lmstudio](https://lmstudio.ai/) i włączyć api.
+
 ## Uruchamianie
 
 W folderze z programem:
 
 1. Wchodzimy do izolowangeo środowiska:
+
 ```bash
 nix-shell
 ```
-2. Kompilujemy program do testowania:
+
+2. Pobieramy program `jimp2-graphs`
+
+```bash
+gh repo clone yallxe/jimp2-graphs
+```
+
+3. Kompilujemy program do testowania:
+
 ```bash
 cd jimp2-graphs
 make
 ```
 
-3. Wracamy do folderu z programem testującym:
+4. Wracamy do folderu z programem testującym:
+
 ```bash
 cd ..
 ```
 
-4. Włączamy lmstudio:
+5. Włączamy lmstudio:
+
 ```bash
 lmstudio
 ```
 
-5. Uruchamiamy program:
+6. Uruchamiamy program:
+
 ```bash
 ./bin/graph_test
 ```
+
 ## Przykład
 
 ```bash
@@ -233,6 +246,7 @@ Wygenerowany graf:
 ##########
 ##########
 ```
+
 ## Konfiguracja testów
 
 W pliku `config.json`
@@ -268,16 +282,16 @@ W pliku `config.json`
     }
   ]
 }
-
 ```
 
 #### Parametry
-- __api__ - adres api lmstudio
-- __model__ - model do generowania grafu
-- __tests__ - lista testów
-- __name__ - nazwa testu
-- __nodes__ - ilość wierzchołków podawanych do programu
-- __edges__ - ilość krawędzi podawanych do programu
-- __expected_nodes__ - oczekiwana ilość wierzchołków (opcjonalna wartość)
-- __expected_edges__ - oczekiwana ilość krawędzi (opcjonalna wartość)
-- __ai__ - true/false czy używać ai do generowania (opcjonalna wartość)
+
+- **api** - adres api lmstudio
+- **model** - model do generowania grafu
+- **tests** - lista testów
+- **name** - nazwa testu
+- **nodes** - ilość wierzchołków podawanych do programu
+- **edges** - ilość krawędzi podawanych do programu
+- **expected_nodes** - oczekiwana ilość wierzchołków (opcjonalna wartość)
+- **expected_edges** - oczekiwana ilość krawędzi (opcjonalna wartość)
+- **ai** - true/false czy używać ai do generowania (opcjonalna wartość)
