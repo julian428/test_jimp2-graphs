@@ -18,38 +18,20 @@ Należy również na własną rękę pobrać wybrany model w [lmstudio](https://
 
 W folderze z programem:
 
-1. Wchodzimy do izolowangeo środowiska:
+1. Kompilujemy program do testowania:
+
+```bash
+make sub
+```
+
+2. Włączamy lmstudio:
 
 ```bash
 nix-shell
-```
-
-2. Pobieramy program `jimp2-graphs`
-
-```bash
-gh repo clone yallxe/jimp2-graphs
-```
-
-3. Kompilujemy program do testowania:
-
-```bash
-cd jimp2-graphs
-make
-```
-
-4. Wracamy do folderu z programem testującym:
-
-```bash
-cd ..
-```
-
-5. Włączamy lmstudio:
-
-```bash
 lmstudio
 ```
 
-6. Uruchamiamy program:
+3. Uruchamiamy program:
 
 ```bash
 ./bin/graph_test
