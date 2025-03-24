@@ -15,10 +15,30 @@
       "expected_edges": 1
     },
     {
-      "name": "Sprawdzanie reakcji na za dużo krawędzi",
+      "name": "Sprawdzanie reakcji na za dużo krawędzi.",
       "nodes": 2,
       "edges": 10,
       "expected_edges": 2
+    },
+    {
+      "name": "Sprawdzanie reakcji na 0 krawędzi.",
+      "nodes": 5,
+      "edges": 0,
+      "expected_edges": 4
+    },
+    {
+      "name": "Sprawdzanie reakcji na 0 wierzchołków.",
+      "nodes": 0,
+      "edges": 5,
+      "expected_edges": 2,
+      "expected_nodes": 2
+    },
+    {
+      "name": "Sprawdzanie reakcji na 0 wierzchołków i 0 krawędzi.",
+      "nodes": 0,
+      "edges": 0,
+      "expected_nodes": 2,
+      "expected_edges": 1
     },
     {
       "name": "Sprawdzanie funkcjonalności LLM.",
