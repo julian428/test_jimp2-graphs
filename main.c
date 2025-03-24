@@ -26,17 +26,35 @@ int main(int argc, char **argv) {
 
     generateGraphFiles(tests[i], model, endpoint);
 
+    const char *fileErrors[] = {
+        "Niezgodna ilość wierzchołków.",
+        "Niezgodna ilość krawędzi.",
+        "Brak pliku.",
+        "Nieprawidłowy format deklaracji wierchołków i krawędzi w pliku.",
+        "Nieprawidłowy format wierchołków.",
+        "Nieprawidłowy format krawędzi."};
+
     int file_parity = checkFileParity(graph_file_name, nodes, edges);
-    translateErrors(file_parity, "Zgodność pliku z założeniami.", log_name);
+    translateErrors(file_parity, "Zgodność pliku z założeniami.", log_name,
+                    fileErrors);
 
     int imageExists = checkImageExistance(graph_image_name);
     log_printf(log_name, "\t%s. Zdjęcie grafu zostało wygenerowane.\n",
                imageExists ? "\x1b[32mPASSED\x1b[0m" : "\x1b[31mFAILED\x1b[0m");
 
+    const char *graphErrors[] = {
+        "Niezgodna ilość deklaracji wierzchołków.",
+        "Niezgodna ilość deklaracji krawędzi.",
+        "Brak pliku.",
+        "Nieprawidłowy format deklaracji wierchołków i krawędzi w pliku.",
+        "Deklaracje wierzchołków zostały powtórzone.",
+        "Użyto niezadeklarowanego wierzchołka."};
+
     int *adjecency_matrix = (int *)calloc(nodes * nodes, sizeof(int));
     int graph_parity =
         checkGraphParity(graph_file_name, nodes, edges, adjecency_matrix);
-    translateErrors(graph_parity, "Zgodność grafu z założeniami.", log_name);
+    translateErrors(graph_parity, "Zgodność grafu z założeniami.", log_name,
+                    graphErrors);
 
     int isDirectional =
         graphIsDirectional(adjecency_matrix, nodes) && (file_parity == 0);

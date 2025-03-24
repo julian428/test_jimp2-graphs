@@ -8,7 +8,7 @@
 
 #include "log.h"
 
-void translateErrors(int, char *, char *);
+void translateErrors(int, char *, char *, const char **);
 char *getNodes(FILE *, const int);
 int getNodeIndex(char *, int, const char);
 int checkFileParity(char *, const int, const int);
