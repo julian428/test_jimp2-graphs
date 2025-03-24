@@ -45,6 +45,44 @@
       "edges": 6,
       "nodes": 3,
       "ai": true
+    },
+    {
+      "name": "Sprawdzanie funkcjonalności LLM z ujemnymi wartościami.",
+      "edges": -1,
+      "nodes": -1,
+      "expected_nodes": 2,
+      "expected_edges": 1,
+      "ai": true
+    },
+    {
+      "name": "Sprawdzanie reakcji LLM na za dużo krawędzi.",
+      "nodes": 2,
+      "edges": 10,
+      "expected_edges": 2,
+      "ai": true
+    },
+    {
+      "name": "Sprawdzanie reakcji LLM na 0 krawędzi.",
+      "nodes": 5,
+      "edges": 0,
+      "expected_edges": 4,
+      "ai": true
+    },
+    {
+      "name": "Sprawdzanie reakcji LLM na 0 wierzchołków.",
+      "nodes": 0,
+      "edges": 5,
+      "expected_edges": 2,
+      "expected_nodes": 2,
+      "ai": true
+    },
+    {
+      "name": "Sprawdzanie reakcji LLM na 0 wierzchołków i 0 krawędzi.",
+      "nodes": 0,
+      "edges": 0,
+      "expected_nodes": 2,
+      "expected_edges": 1,
+      "ai": true
     }
   ]
 }
