@@ -9,19 +9,13 @@
 // 010000 = 16 - wrong file format nodes
 // 100000 = 32 - wrong file format edges
 
-void translateErrors(int error_value, char *title, char *log_file_name) {
+void translateErrors(int error_value, char *title, char *log_file_name,
+                     const char **errors) {
   log_printf(log_file_name, "\t%s. %s\n",
              error_value == 0 ? "\x1b[32mPASSED\x1b[0m"
                               : "\x1b[31mFAILED\x1b[0m",
              title);
   const int error_count = 6;
-  const char *errors[] = {
-      "Niezgodna ilość wierzchołków.",
-      "Niezgodna ilość krawędzi.",
-      "Brak pliku.",
-      "Nieprawidłowy format deklaracji wierchołków i krawędzi w pliku.",
-      "Nieprawidłowy format wierchołków.",
-      "Nieprawidłowy format krawędzi."};
   int error_sum = error_value;
   for (int i = 0; i < error_count; i++) {
     int reverse_value = error_count - 1 - i;
