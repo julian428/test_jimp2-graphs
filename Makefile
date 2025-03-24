@@ -24,4 +24,6 @@ clean:
 	rm -rf test_inputs bin logs
 
 sub:
+	rm -rf $(SUBMODULE)
+	git clone https://github.com/yallxe/jimp2-graphs.git
 	nix-shell --run "make -C $(SUBMODULE)"
