@@ -5,6 +5,7 @@ LDFLAGS = -lcurl -lcjson -lm
 SRC = main.c lib/file-check.c lib/utils.c lib/config.c lib/log.c
 OBJ = $(patsubst %.c,bin/%.o,$(SRC))
 EXEC = bin/graph_test
+SUBMODULE = jimp2-graphs
 
 all: $(EXEC)
 
@@ -22,3 +23,5 @@ bin_dirs:
 clean:
 	rm -rf test_inputs bin logs
 
+sub:
+	nix-shell --run "make -C $(SUBMODULE)"
