@@ -8,8 +8,16 @@ Do kompilacji oraz uruchomienia programu potrzebny będzie [nix-shell](https://n
 
 W folderze z programem:
 
+1. Kompilujemy program testujący
+
 ```bash
 make
+```
+
+2. Kompilujemy program do testowania
+
+```bash
+make sub
 ```
 
 Należy również na własną rękę pobrać wybrany model w [lmstudio](https://lmstudio.ai/) i włączyć api.
@@ -18,20 +26,14 @@ Należy również na własną rękę pobrać wybrany model w [lmstudio](https://
 
 W folderze z programem:
 
-1. Kompilujemy program do testowania:
-
-```bash
-make sub
-```
-
-2. Włączamy lmstudio:
+1. Włączamy lmstudio:
 
 ```bash
 nix-shell
 lmstudio
 ```
 
-3. Uruchamiamy program:
+2. Uruchamiamy program:
 
 ```bash
 ./bin/graph_test
